@@ -1,4 +1,5 @@
 Statr::Application.routes.draw do
+  get "landings/index"
   resources :teams
 
   resources :games
