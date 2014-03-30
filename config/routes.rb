@@ -1,4 +1,6 @@
 Statr::Application.routes.draw do
+  resources :teams
+
   resources :games
 
   resources :players
