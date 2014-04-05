@@ -11,11 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330181140) do
+ActiveRecord::Schema.define(version: 20140330194926) do
 
   create_table "games", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "team_id"
+    t.string   "opponent_name"
+    t.date     "date_played"
   end
 
   create_table "games_players", force: true do |t|
@@ -30,14 +33,38 @@ ActiveRecord::Schema.define(version: 20140330181140) do
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "jersey_number"
   end
 
   add_index "players", ["team_id"], name: "index_players_on_team_id"
+
+  create_table "stats", force: true do |t|
+    t.integer  "player_id"
+    t.integer  "game_id"
+    t.integer  "free_throw_attempts"
+    t.integer  "free_throws"
+    t.integer  "field_goal_attempts"
+    t.integer  "field_goals"
+    t.integer  "three_pointer_attempts"
+    t.integer  "three_pointers"
+    t.integer  "offensive_rebounds"
+    t.integer  "defensive_rebounds"
+    t.integer  "turnovers"
+    t.integer  "personal_fouls"
+    t.integer  "steals"
+    t.integer  "blocks"
+    t.integer  "assists"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "teams", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "teams_teams", force: true do |t|

@@ -2,6 +2,24 @@
 <div class="page-header">
   <h1><%=t '.title', :default => Game %></h1>
 </div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Field Goal Made</th>
+    <th>Field Goal Missed</th>
+  </tr>
+  <tr>
+    <% @game.team.players.each do |p| %>
+      <td><%= p.full_name %></td>
+      <td><%= p.jersey_number %></td>
+      <td><%= p.stats.field_goal_attempts %>
+        <%= button_to 'Add One', update_stats_path(game_id: @game.id, player_id: p.id, stat: 'field_goal_attempts', change: 'increment')%>
+        <%= button_to 'Add One', update_stats_path(game_id: @game.id, player_id: p.id, stat: 'field_goal_attempts', change: 'decrement')%>
+      </td>
+    <% end %>  
+  </tr>
+</table>
 
 <div class="fieldset">
   <dl>

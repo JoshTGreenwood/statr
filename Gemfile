@@ -64,3 +64,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'validates_formatting_of'
+
+gem 'jazz_hands'
+
+gem 'simple_form'

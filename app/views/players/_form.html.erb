@@ -1,7 +1,11 @@
-<%= form_for @player, :html => { :class => 'form-horizontal form-model' } do |f| %>
+<%= simple_form_for @player, :html => { :class => 'form-horizontal form-model' } do |f| %>
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :jersey_number %>
+      <%= f.association :team %>
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                   players_path, :class => 'btn btn-default' %>

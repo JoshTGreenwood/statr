@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = current_user.teams
   end
 
   # GET /teams/1
@@ -29,6 +29,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    @team.user_id = current_user.id
 
     respond_to do |format|
       if @team.save

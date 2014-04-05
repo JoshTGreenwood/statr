@@ -1,20 +1,18 @@
-<%- model_class = Player -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => Player %></h1>
-</div>
+<h1><%= @team.name %> Players</h1>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Name</th>
+      <th>Jersey Number</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.id %></td>
-        <td><%=l player.created_at, format: :long %></td>
+        <td><%= player.full_name %></td>
+        <td><%= player.jersey_number %></td>
         <td>
           <%= link_to player_path(player), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>
