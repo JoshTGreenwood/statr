@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330194926) do
+ActiveRecord::Schema.define(version: 20140408164315) do
 
   create_table "games", force: true do |t|
     t.datetime "created_at"
@@ -41,21 +41,21 @@ ActiveRecord::Schema.define(version: 20140330194926) do
   add_index "players", ["team_id"], name: "index_players_on_team_id"
 
   create_table "stats", force: true do |t|
-    t.integer  "player_id"
-    t.integer  "game_id"
-    t.integer  "free_throw_attempts"
-    t.integer  "free_throws"
-    t.integer  "field_goal_attempts"
-    t.integer  "field_goals"
-    t.integer  "three_pointer_attempts"
-    t.integer  "three_pointers"
-    t.integer  "offensive_rebounds"
-    t.integer  "defensive_rebounds"
-    t.integer  "turnovers"
-    t.integer  "personal_fouls"
-    t.integer  "steals"
-    t.integer  "blocks"
-    t.integer  "assists"
+    t.integer  "player_id",              default: 0
+    t.integer  "game_id",                default: 0
+    t.integer  "free_throw_attempts",    default: 0
+    t.integer  "free_throws",            default: 0
+    t.integer  "field_goal_attempts",    default: 0
+    t.integer  "field_goals",            default: 0
+    t.integer  "three_pointer_attempts", default: 0
+    t.integer  "three_pointers",         default: 0
+    t.integer  "offensive_rebounds",     default: 0
+    t.integer  "defensive_rebounds",     default: 0
+    t.integer  "turnovers",              default: 0
+    t.integer  "personal_fouls",         default: 0
+    t.integer  "steals",                 default: 0
+    t.integer  "blocks",                 default: 0
+    t.integer  "assists",                default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

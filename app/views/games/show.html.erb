@@ -2,29 +2,83 @@
 <div class="page-header">
   <h1><%=t '.title', :default => Game %></h1>
 </div>
-<table>
+<table class='table'>
   <tr>
     <th>Name</th>
     <th>Number</th>
     <th>Field Goal Made</th>
     <th>Field Goal Missed</th>
+    <th>Free Throw Made</th>
+    <th>Free Throw Missed</th>
+    <th>3 Pointer Made</th>
+    <th>3 Pointer Missed</th>
+    <th>O-Rebound</th>
+    <th>D-Rebound</th>
+    <th>Turnover</th>
+    <th>Foul</th>
+    <th>Steal</th>
+    <th>Block</th>
+    <th>Assist</th>
   </tr>
-  <tr>
-    <% @game.team.players.each do |p| %>
-      <td><%= p.full_name %></td>
-      <td><%= p.jersey_number %></td>
-      <td><%= p.stats.field_goal_attempts %>
-        <%= button_to 'Add One', update_stats_path(game_id: @game.id, player_id: p.id, stat: 'field_goal_attempts', change: 'increment')%>
-        <%= button_to 'Add One', update_stats_path(game_id: @game.id, player_id: p.id, stat: 'field_goal_attempts', change: 'decrement')%>
-      </td>
-    <% end %>  
+  <% @game.stats.each do |s| %>
+    <tr>
+    <td><%= s.player.full_name %></td>
+    <td><%= s.player.jersey_number %></td>
+    <td><%= s.field_goals %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, field_goals: (s.field_goals + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, field_goals: (s.field_goals - 1)), method: :patch %>
+    </td>
+    <th><%= s.field_goal_attempts %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts - 1)), method: :patch %>
+    </th>
+    <td><%= s.free_throws %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, free_throws: (s.free_throws + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, free_throws: (s.free_throws - 1)), method: :patch %>
+    </td>   
+    <td><%= s.free_throw_attempts %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, free_throw_attempts: (s.free_throw_attempts + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, free_throw_attempts: (s.free_throw_attempts - 1)), method: :patch %>
+    </td>   
+    <td><%= s.three_pointers %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, three_pointers: (s.three_pointers + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, three_pointers: (s.three_pointers - 1)), method: :patch %>
+    </td>   
+    <td><%= s.three_pointer_attempts %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, three_pointer_attempts: (s.three_pointer_attempts + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, three_pointer_attempts: (s.three_pointer_attempts - 1)), method: :patch %>
+    </td>   
+    <td><%= s.offensive_rebounds %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, offensive_rebounds: (s.offensive_rebounds + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, offensive_rebounds: (s.offensive_rebounds - 1)), method: :patch %>
+    </td>   
+    <td><%= s.defensive_rebounds %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, defensive_rebounds: (s.defensive_rebounds + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, defensive_rebounds: (s.defensive_rebounds - 1)), method: :patch %>
+    </td>   
+    <td><%= s.turnovers %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, turnovers: (s.turnovers + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, turnovers: (s.turnovers - 1)), method: :patch %>
+    </td>   
+    <td><%= s.personal_fouls %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, personal_fouls: (s.personal_fouls + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, personal_fouls: (s.personal_fouls - 1)), method: :patch %>
+    </td>   
+    <td><%= s.steals %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, steals: (s.steals + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, steals: (s.steals - 1)), method: :patch %>
+    </td>
+    <td><%= s.blocks %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, blocks: (s.blocks + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, blocks: (s.blocks - 1)), method: :patch %>
+    </td>    
+    <td><%= s.assists %>
+      <%= button_to '+', stat_path(s,player_id: s.player.id, assists: (s.assists + 1)), method: :patch %>
+      <%= button_to '-', stat_path(s,player_id: s.player.id, assists: (s.assists - 1)), method: :patch %>
+    </td>
   </tr>
+<% end %>  
 </table>
-
-<div class="fieldset">
-  <dl>
-  </dl>
-</div>
 
 <div class="form-group">
   <%= link_to t('.back', :default => t("helpers.links.back")),

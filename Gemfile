@@ -68,3 +68,7 @@ gem 'validates_formatting_of'
 gem 'jazz_hands'
 
 gem 'simple_form'
+
+group :development do
+  gem 'guard-livereload', require: false
+end

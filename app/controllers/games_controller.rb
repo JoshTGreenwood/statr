@@ -70,7 +70,7 @@ class GamesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.includes(:players, :stats).find(params[:id])
+      @game = Game.includes(:stats, :team => :players).find(params[:id])
     end
 
 
