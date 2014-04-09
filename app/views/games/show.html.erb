@@ -2,7 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => Game %></h1>
 </div>
-<table class='table'>
+
+<%= glyph(:star) %>
+<table class='table table-bordered table-hover table-condensed'>
   <tr>
     <th>Name</th>
     <th>Number</th>
@@ -25,56 +27,56 @@
     <td><%= s.player.full_name %></td>
     <td><%= s.player.jersey_number %></td>
     <td><%= s.field_goals %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, field_goals: (s.field_goals + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, field_goals: (s.field_goals - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, field_goals: (s.field_goals + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, field_goals: (s.field_goals - 1)), method: :patch %>
     </td>
     <th><%= s.field_goal_attempts %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts - 1)), method: :patch %>
     </th>
     <td><%= s.free_throws %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, free_throws: (s.free_throws + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, free_throws: (s.free_throws - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, free_throws: (s.free_throws + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, free_throws: (s.free_throws - 1)), method: :patch %>
     </td>   
     <td><%= s.free_throw_attempts %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, free_throw_attempts: (s.free_throw_attempts + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, free_throw_attempts: (s.free_throw_attempts - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, free_throw_attempts: (s.free_throw_attempts + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, free_throw_attempts: (s.free_throw_attempts - 1)), method: :patch %>
     </td>   
     <td><%= s.three_pointers %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, three_pointers: (s.three_pointers + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, three_pointers: (s.three_pointers - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, three_pointers: (s.three_pointers + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, three_pointers: (s.three_pointers - 1)), method: :patch %>
     </td>   
     <td><%= s.three_pointer_attempts %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, three_pointer_attempts: (s.three_pointer_attempts + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, three_pointer_attempts: (s.three_pointer_attempts - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, three_pointer_attempts: (s.three_pointer_attempts + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, three_pointer_attempts: (s.three_pointer_attempts - 1)), method: :patch %>
     </td>   
     <td><%= s.offensive_rebounds %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, offensive_rebounds: (s.offensive_rebounds + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, offensive_rebounds: (s.offensive_rebounds - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, offensive_rebounds: (s.offensive_rebounds + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, offensive_rebounds: (s.offensive_rebounds - 1)), method: :patch %>
     </td>   
     <td><%= s.defensive_rebounds %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, defensive_rebounds: (s.defensive_rebounds + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, defensive_rebounds: (s.defensive_rebounds - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, defensive_rebounds: (s.defensive_rebounds + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, defensive_rebounds: (s.defensive_rebounds - 1)), method: :patch %>
     </td>   
     <td><%= s.turnovers %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, turnovers: (s.turnovers + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, turnovers: (s.turnovers - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, turnovers: (s.turnovers + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, turnovers: (s.turnovers - 1)), method: :patch %>
     </td>   
     <td><%= s.personal_fouls %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, personal_fouls: (s.personal_fouls + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, personal_fouls: (s.personal_fouls - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, personal_fouls: (s.personal_fouls + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, personal_fouls: (s.personal_fouls - 1)), method: :patch %>
     </td>   
     <td><%= s.steals %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, steals: (s.steals + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, steals: (s.steals - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, steals: (s.steals + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, steals: (s.steals - 1)), method: :patch %>
     </td>
     <td><%= s.blocks %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, blocks: (s.blocks + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, blocks: (s.blocks - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, blocks: (s.blocks + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, blocks: (s.blocks - 1)), method: :patch %>
     </td>    
     <td><%= s.assists %>
-      <%= button_to '+', stat_path(s,player_id: s.player.id, assists: (s.assists + 1)), method: :patch %>
-      <%= button_to '-', stat_path(s,player_id: s.player.id, assists: (s.assists - 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, assists: (s.assists + 1)), method: :patch %>
+      <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, assists: (s.assists - 1)), method: :patch %>
     </td>
   </tr>
 <% end %>  
