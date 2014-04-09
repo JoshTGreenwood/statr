@@ -30,10 +30,10 @@
       <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, field_goals: (s.field_goals + 1)), method: :patch %>
       <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, field_goals: (s.field_goals - 1)), method: :patch %>
     </td>
-    <th><%= s.field_goal_attempts %>
+    <td><%= s.field_goal_attempts %>
       <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts + 1)), method: :patch %>
       <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, field_goal_attempts: (s.field_goal_attempts - 1)), method: :patch %>
-    </th>
+    </td>
     <td><%= s.free_throws %>
       <%= link_to raw("<i class='glyphicon glyphicon-plus'></i>"), stat_path(s,player_id: s.player.id, free_throws: (s.free_throws + 1)), method: :patch %>
       <%= link_to raw("<i class='glyphicon glyphicon-minus'></i>"), stat_path(s,player_id: s.player.id, free_throws: (s.free_throws - 1)), method: :patch %>
