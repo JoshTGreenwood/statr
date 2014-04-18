@@ -47,12 +47,6 @@ gem 'bundler'
 
 gem 'dotenv-rails', group: [:development, :test]
 
-gem 'better_errors', group: :development
-
-gem 'binding_of_caller'
-
-gem 'pry-rails', group: :development
-
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 
 gem 'bootstrap-sass-extras'
@@ -65,12 +59,14 @@ gem 'omniauth-facebook'
 
 gem 'validates_formatting_of'
 
-gem 'jazz_hands'
-
 gem 'simple_form'
 
 gem 'rails_12factor', group: :production
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'jazz_hands'
   gem 'guard-livereload', require: false
 end
