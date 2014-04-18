@@ -1,13 +1,8 @@
-<%= simple_form_for @game, :html => { :class => 'form-horizontal form-model' } do |f| %>
+<%= simple_form_for @game, html: {class: 'form-horizontal' } do |f| %>
   <%= f.association :team %>
   <%= f.input :opponent_name %>
-  <%= f.input :date_played %>
+  <%= f.input :date_played, as: :date %>
+  <br />
 
-  <div class="form-group">
-    <div class='col-md-offset-2 col-md-10'>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                  games_path, :class => 'btn btn-default' %>
-    </div>
-  </div>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
 <% end %>
