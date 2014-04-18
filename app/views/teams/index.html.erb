@@ -2,7 +2,10 @@
 <% @teams.each do |team| %>
 <div class='team-card' style=''>
    <h2 class='team-name'><%= team.name %></h2>
-   <%= link_to 'Players', players_path(team_id: team.id), :class => 'btn btn-primary' %>
+   <%= link_to 'Players', players_path(team_id: team.id), class: 'btn btn-primary' %>
+   <br />
+   <br />
+   <%= link_to 'Games', games_path(team_id: team.id), class: 'btn btn-primary' %>
 </div>
 <% end %>
 
