@@ -5,16 +5,16 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Opponent</th>
+      <th>Date Played</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.id %></td>
-        <td><%=l game.created_at, format: :long %></td>
+        <td><%= game.opponent_name %></td>
+        <td><%= game.date_played %></td>
         <td>
           <%= link_to game_path(game), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>
