@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140408164315) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "games", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140408164315) do
     t.integer "player_id"
   end
 
-  add_index "games_players", ["game_id"], name: "index_games_players_on_game_id"
-  add_index "games_players", ["player_id"], name: "index_games_players_on_player_id"
+  add_index "games_players", ["game_id"], name: "index_games_players_on_game_id", using: :btree
+  add_index "games_players", ["player_id"], name: "index_games_players_on_player_id", using: :btree
 
   create_table "players", force: true do |t|
     t.integer  "team_id"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140408164315) do
     t.string   "jersey_number"
   end
 
-  add_index "players", ["team_id"], name: "index_players_on_team_id"
+  add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
   create_table "stats", force: true do |t|
     t.integer  "player_id",              default: 0
@@ -71,7 +74,7 @@ ActiveRecord::Schema.define(version: 20140408164315) do
     t.integer "team_id"
   end
 
-  add_index "teams_teams", ["team_id"], name: "index_teams_teams_on_team_id"
+  add_index "teams_teams", ["team_id"], name: "index_teams_teams_on_team_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -88,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140408164315) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
