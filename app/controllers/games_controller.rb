@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @team = @game.team
-    @players = @team.players.joins(:stats)
+    @players = @team.players.joins(:stats).order(:last_name)
   end
 
   # GET /games/new

@@ -12,11 +12,29 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
+    @chart = LazyHighCharts::HighChart.new('area') do |f|
+      f.title(:text => "Shots")
+      f.xAxis(:categories => @player.games.pluck(:opponent_name))
+
+      f.series(:name => "Points", :yAxis => 0, :data => @player.stat_per_game(:points)) 
+
+      f.series(:name => "Field Goals", :yAxis => 0, :data => @player.stat_per_game(:field_goals)) 
+
+      f.series(:name => "Free Throws", :yAxis => 0, :data => @player.stat_per_game(:free_throws)) 
+
+      f.series(:name => "Three Pointers", :yAxis => 0, :data => @player.stat_per_game(:three_pointers)) 
+
+      f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+
+      f.chart({defaultSeriesType: "column"})
+    end
   end
+
 
   # GET /players/new
   def new
     @player = Player.new
+    @team = Team.find params[:team_id]
   end
 
   # GET /players/1/edit

@@ -103,6 +103,7 @@ GEM
       em-websocket (~> 0.5)
       guard (~> 2.0)
       multi_json (~> 1.8)
+    hash-deep-merge (0.1.1)
     hashie (2.0.5)
     hike (1.2.3)
     hirb (0.7.1)
@@ -129,6 +130,9 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
+    lazy_high_charts (1.5.2)
+      bundler (>= 1.0)
+      hash-deep-merge
     listen (2.4.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -270,6 +274,7 @@ DEPENDENCIES
   jazz_hands
   jbuilder (~> 1.2)
   jquery-rails
+  lazy_high_charts
   omniauth
   omniauth-facebook
   pg
