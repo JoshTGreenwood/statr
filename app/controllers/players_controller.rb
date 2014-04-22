@@ -39,6 +39,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    @team = @player.team
   end
 
   # POST /players
