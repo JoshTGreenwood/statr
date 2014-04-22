@@ -77,7 +77,7 @@ class PlayersController < ApplicationController
   def destroy
     @player.destroy
     respond_to do |format|
-      format.html { redirect_to players_url }
+      format.html { redirect_to players_url(team_id: @player.team.id) }
       format.json { head :no_content }
     end
   end
