@@ -1,22 +1,23 @@
-<h1>My Teams</h1>
-<% @teams.each do |team| %>
-<div class='team-card' style=''>
-   <h2 class='team-name'><%= team.name %></h2>
-   <%= link_to 'Players', players_path(team_id: team.id), class: 'btn btn-primary' %>
-   <br />
-   <br />
-   <%= link_to 'Games', games_path(team_id: team.id), class: 'btn btn-primary' %>
+<div id='header'>
+  <h1>My Teams</h1>
+  <%= link_to 'New Team', new_team_path, :class => 'btn btn-primary btn-xs' %>
 </div>
+<% @teams.each do |team| %>
+  <div class='team-card' style=''>
+    <h2 class='team-name'><%= team.name %></h2>
+    <%= link_to 'Players', players_path(team_id: team.id), class: 'btn btn-primary' %>
+    <br />
+    <br />
+    <%= link_to 'Games', games_path(team_id: team.id), class: 'btn btn-primary' %>
+  </div>
 <% end %>
-
-<%= link_to 'New Team', new_team_path, :class => 'btn btn-primary' %>
-
 
 <style type="text/css" media="all">
   .team-card {
     position: relative;
     float: left;
     margin-right: 10px;
+    margin-top: 10px;
     width: 150px;
     height: 220px;
     border-radius: 10px;
@@ -26,6 +27,7 @@
 
     text-align: center;
   }
-  .team-name {
-  }
+  
+
+
 </style>
