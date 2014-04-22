@@ -4,7 +4,7 @@ Statr is a web application written using Ruby on Rails to aid basketball coaches
 
 
 ## Ruby version
-Statr is tested to work on Ruby > 2.0.0 but should work on any version that is newer than 1.9.
+Statr is tested to work on Ruby >= *2.0.0* but should work on any version that is newer than 1.9.
 
 
 ## Running the tests
