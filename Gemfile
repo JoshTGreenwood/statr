@@ -15,9 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -32,20 +29,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 gem 'bundler'
 
-gem 'dotenv-rails', group: [:development, :test]
 
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
 
@@ -53,17 +38,25 @@ gem 'bootstrap-sass-extras'
 
 gem 'devise', github: 'plataformatec/devise'
 
-gem 'omniauth'
-
-gem 'omniauth-facebook'
 
 gem 'validates_formatting_of'
 
 gem 'simple_form'
 
+# Heroku dependency 
 gem 'rails_12factor', group: :production
 
+#Charting
 gem 'lazy_high_charts'
+
+# Testing 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'fuubar'
+  gem 'dotenv-rails'
+  gem 'factory_girl_rails'
+
+end
 
 group :development do
   gem 'better_errors'
